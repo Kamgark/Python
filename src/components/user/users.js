@@ -3,15 +3,24 @@ import { Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { connect } from "react-redux";
 
-
+import { Modal } from 'react-responsive-modal';
+import Createuser from '../createUser';
 import data from '../../data.json'
-
-class pendingreview1 extends Component {
+import 'react-responsive-modal/styles.css';
+class users extends Component {
     state={
-        firsttabledata:[]
+        firsttabledata:[],
+        open: false,
     }
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
     componentDidMount(){
-        this.setState({firsttabledata:data.pendingreview2})
+        this.setState({firsttabledata:data.users})
     }
     tick(index){
         let {firsttabledata}=this.state;
@@ -51,66 +60,46 @@ class pendingreview1 extends Component {
         let {firsttabledata}=this.state;
         let newdata=firsttabledata;
         let update=[ {
-            name1:"CYC2001",
-            name2:"0askdfjl alsfdkjasl lakdsflas dflanwfsa dflaskdfhnalsdknf ",
-            name3:"0",
-            name4:"75",
-            name5:"75",
-            name6:"75",
-            name7:"75",
-            name8:"75",
-            name9:"asdklf;jasdklfjsal",
+            name1:"12938",
+            name2:"alskdf",
+            name3:"low",
+
             edit:true
         },...newdata]
 
         this.setState({firsttabledata:update})
     }
     render(){
-        let {firsttabledata}=this.state;
+        let {firsttabledata,open}=this.state;
         return(
-
+        <>
             <table>
                 <thead>
-                <th>ID</th>
-                <th>EmpID</th>
-                <th>SKU</th>
-                <th>Build Date</th>
-                <th>Total Date</th>
-                <th>Build Hours	</th>
-                <th>PS</th>
-                <th>BTI</th>
-                <th>Comments</th>
-                <th><i className="fa fa-plus" onClick={()=> this.addtable()}></i></th>
-                <th></th>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Level</th>
 
+                <th><i className="fa fa-plus" onClick={()=> this.onOpenModal()}></i></th>
                 </thead>
                 <tbody>
                 {
                     firsttabledata && firsttabledata.map((item, index)=>{
                         return(
                             <tr key={index}>
+                                {
+                                    console.log("item.edit",item.edit)
+                                }
                                 <td>{item.edit ===true ? <input className="inputcontrol" type="text" defaultValue={item.name1}/>:item.name1}
                                 </td>
-                                <td>{item.edit===true ? <input   className="inputcontrol" type="text" defaultValue={item.name2}/>:item.name2}
+                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name2}/>:item.name2}
                                 </td>
                                 <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name3}/>:item.name3}
                                 </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name4}/>:item.name4}
-                                </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name5}/>:item.name5}
-                                </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name6}/>:item.name6}
-                                </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name7}/>:item.name7}
-                                </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name8}/>:item.name8}
-                                </td>
-                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name9}/>:item.name9}
-                                </td>
-                                <td>{item.edit===true ? <i className="fa fa-check ml-0"  onClick={()=>this.tick(index)}></i>:<i className="fa fa-edit ml-0" onClick={()=> this.edit(index)}></i>}
+
+
+                                <td>{item.edit===true ? <i className="fa fa-check ml-0" onClick={()=>this.tick(index)}></i>:<i className="fa fa-edit ml-0" onClick={()=> this.edit(index)}></i>}
                                     <i className="fa fa-trash cursor-pointer" onClick={()=> this.delete(index)}></i>
                                 </td>
-
 
 
                             </tr>
@@ -119,6 +108,10 @@ class pendingreview1 extends Component {
                 }
                 </tbody>
             </table>
+        <Modal open={open} onClose={this.onCloseModal} >
+            <Createuser/>
+        </Modal>
+        </>
         )
     }
 }
@@ -137,4 +130,4 @@ const mapDispachToProps = dispatch => {
 export default connect(
     mapStateToProps,
     {}
-)(pendingreview1);
+)(users);

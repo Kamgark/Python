@@ -101,10 +101,10 @@ class buildbysku extends Component {
                                         </td>
                                         <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name7}/>:item.name7}
                                         </td>
-                                        <td>{item.edit===true ? <i className="fa fa-check" onClick={()=>this.tick(index)}></i>:<i className="fa fa-edit" onClick={()=> this.edit(index)}></i>}
+                                        <td>{item.edit===true ? <i className="fa fa-check ml-0" onClick={()=>this.tick(index)}></i>:<i className="fa fa-edit ml-0" onClick={()=> this.edit(index)}></i>}
+                                            <i className="fa fa-trash cursor-pointer" onClick={()=> this.delete(index)}></i>
                                         </td>
-                                        <td><i className="fa fa-trash cursor-pointer" onClick={()=> this.delete(index)}></i>
-                                        </td>
+
 
 
                                     </tr>

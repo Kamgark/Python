@@ -223,6 +223,7 @@
     "name6":"77",
     "name7":"77",
     "name8":"77",
+    "name9":"77",
     "edit":"false"
   },
     {
@@ -234,6 +235,7 @@
       "name6":"77",
       "name7":"77",
       "name8":"77",
+      "name9":"77",
       "edit":"false"
     },
     {
@@ -245,6 +247,7 @@
       "name6":"77",
       "name7":"77",
       "name8":"77",
+      "name9":"77",
       "edit":"false"
     }],
   "builddetailsview1":[{
@@ -277,6 +280,55 @@
       "name6":"77",
       "name7":"77",
       "name8":"77",
+      "edit":"false"
+    }],
+  "timeregistration":[{
+    "name1":"00:00:00 AM",
+    "name2":"YCA0012",
+    "name3":"Robert Ruth",
+    "name4":"88",
+
+    "edit":"false"
+  },
+    {
+      "name1":"00:00:00 AM",
+      "name2":"YCA0012",
+      "name3":"Robert Ruth",
+      "name4":"88",
+
+      "edit":"false"
+    },
+    {
+      "name1":"00:00:00 AM",
+      "name2":"YCA0012",
+      "name3":"Robert Ruth",
+      "name4":"88",
+
+      "edit":"false"
+    },
+    {
+      "name1":"00:00:00 AM",
+      "name2":"YCA0012",
+      "name3":"Robert Ruth",
+      "name4":"88",
+      "edit":"false"
+    }],
+  "users":[{
+    "name1":"205371",
+    "name2":"john",
+    "name3":"low",
+    "edit":"false"
+  },
+    {
+      "name1":"205371",
+      "name2":"michael",
+      "name3":"medum",
+      "edit":"false"
+    },
+    {
+      "name1":"205371",
+      "name2":"simon",
+      "name3":"high",
       "edit":"false"
     }]
 }

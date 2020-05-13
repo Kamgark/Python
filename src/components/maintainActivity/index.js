@@ -12,13 +12,14 @@ class MaintainActivity extends Component {
                                 <div className="maintain">
                                     <label className="mb-0">Activity ID</label>
                                     <div>
-                                        <p>999999</p>
+                                        <input type="text" defaultValue={"999999"}/>
                                     </div>
                                 </div>
                                 <div className="maintain">
                                     <label className="mb-0">Activity Name</label>
                                     <div>
-                                        <p>orum ipsum dolor sit amit, consectetuer adipiscing elit. Aenean commado ligula eget dolor. Aenean massa. Cum sociis natoque</p>
+                                        <textarea cols="40" rows="5" defaultValue={"orum ipsum dolor sit amit, consectetuer adipiscing elit. Aenean commado ligula eget dolor. Aenean massa. Cum sociis natoque"}></textarea>
+
                                     </div>
                                 </div>
                                 <div className="maintain-button">

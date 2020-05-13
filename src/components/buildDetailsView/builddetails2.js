@@ -106,6 +106,8 @@ class buildDetails extends Component {
                                 </td>
                                 <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name8}/>:item.name8}
                                 </td>
+                                <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name9}/>:item.name9}
+                                </td>
                                 <td>{item.edit===true ? <i className="fa fa-check" onClick={()=>this.tick(index)}></i>:<i className="fa fa-edit" onClick={()=> this.edit(index)}></i>}
                                 </td>
                                 <td><i className="fa fa-trash cursor-pointer" onClick={()=> this.delete(index)}></i>

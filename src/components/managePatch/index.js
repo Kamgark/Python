@@ -12,19 +12,19 @@ class ManagePatch extends Component {
                                 <div className="maintain">
                                     <label className="mb-0">Date</label>
                                     <div>
-                                        <p>03/23/2020</p>
+                                        <input type="date"/>
                                     </div>
                                 </div>
                                 <div className="maintain">
                                     <label className="mb-0">Patch ID</label>
                                     <div>
-                                        <p>XXXXXXXX</p>
+                                        <input type="text"/>
                                     </div>
                                 </div>
                                 <div className="maintain">
                                     <label className="mb-0">Patch Description</label>
                                     <div>
-                                        <p>orum ipsum dolor sit amit, consectetuer adipiscing elit. Aenean commado ligula eget dolor.</p>
+                                        <textarea cols="40" rows="5"></textarea>
                                     </div>
                                 </div>
                                 

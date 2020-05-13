@@ -85,9 +85,7 @@ class userActivity extends Component {
                     firsttabledata && firsttabledata.map((item, index)=>{
                         return(
                             <tr key={index}>
-                                {
-                                    console.log("item.edit",item.edit)
-                                }
+
                                 <td>{item.edit ===true ? <input className="inputcontrol" type="text" defaultValue={item.name1}/>:item.name1}
                                 </td>
                                 <td>{item.edit===true ? <input className="inputcontrol" type="text" defaultValue={item.name2}/>:item.name2}

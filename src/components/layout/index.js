@@ -15,24 +15,30 @@ class Layout extends Component {
     }
     goto(name){
         let {tabs}=this.props;
+        let tab=tabs;
         let Tabs=[];
         let isThere=true;
-        tabs.map((item)=>{
+        tab.map((item)=>{
+
             if(item.name ===name){
-                isThere=false
+                isThere=false;
+                item.active=true
+            }
+            else{
+                item.active=false
             }
         });
         if(isThere){
-            Tabs.push(...tabs,{id:`${tabs.length+1}`,name:name})
+            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
         }
         else{
-            Tabs.push(...tabs);
+            Tabs.push(...tab);
         }
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name}`);
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
     }
     render() {
-        console.log("layout ", this.state.openstate)
+
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -46,8 +52,8 @@ class Layout extends Component {
                             </button>
                             {/* <button onClick={()=>{this.open1()}}>File </button> */}
                             <DropdownButton id="dropdown-item-button" title="File">
-                                <Dropdown.Item as="button" onClick={()=> this.goto("builddetailsview")} >Build Details View</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={()=> this.goto("login")} >Sign in</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={()=> this.goto("Build Details View")} >Build Details View</Dropdown.Item>
+                                <Dropdown.Item as="button" onClick={()=> this.goto("Login")} >Sign in</Dropdown.Item>
                                 <Dropdown.Item as="button">Log Out</Dropdown.Item>
                             </DropdownButton>
                             <DropdownButton id="dropdown-item-button" title="Edit">
@@ -55,7 +61,17 @@ class Layout extends Component {
                                 <Dropdown.Item as="button">Another action</Dropdown.Item>
                                 <Dropdown.Item as="button">Something else</Dropdown.Item>
                             </DropdownButton>  
-                            <p>Build System</p>                      
+                            <p>Build System</p>
+                            {
+                                this.props.tabs.map((item)=>{
+                                   return item.active=== true && <p className="pagetitle">
+                                        {
+                                            item.name
+                                        }
+                                    </p>
+                                })
+                            }
+
                             </div>
 
                     </div>
@@ -69,7 +85,7 @@ class Layout extends Component {
                          : null
                     }
                     </div>
-                    <div className="col-sm-10">
+                    <div className="col-sm-10 menu-margin">
                     <Tabs/>
                    {this.props.children}  
                     </div>

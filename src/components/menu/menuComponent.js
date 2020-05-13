@@ -6,21 +6,27 @@ import { connect } from "react-redux";
 class menuComponent extends Component {
     addTabs(name) {
         let { tabs } = this.props;
-        let Tabs = [];
-        let isThere = true;
-        tabs.map((item) => {
-            if (item.name === name) {
-                isThere = false
+        let tab=tabs;
+        let Tabs=[];
+        let isThere=true;
+        tab.map((item)=>{
+
+            if(item.name ===name){
+                isThere=false;
+                item.active=true
+            }
+            else{
+                item.active=false
             }
         });
-        if (isThere) {
-            Tabs.push(...tabs, { id: `${tabs.length + 1}`, name: name })
+        if(isThere){
+            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
         }
-        else {
-            Tabs.push(...tabs);
+        else{
+            Tabs.push(...tab);
         }
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name}`);
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
     }
     render() {
         return (
@@ -35,13 +41,13 @@ class menuComponent extends Component {
                                         <div className="img-div">
                                             <img src={require('../../Assets/images/calendar(1).svg')} alt="" />
                                         </div>
-                                        <button onClick={() => { this.addTabs("openweeklybuild") }}>Weekly Build Plan</button>
+                                        <button onClick={() => { this.addTabs("Open Weekly Build") }}>Weekly Build Plan</button>
                                     </div>
                                     <div className="col-sm-6 card-inner">
                                         <div className="img-div">
                                             <img src={require('../../Assets/images/email.svg')} alt="" />
                                         </div>
-                                        <button onClick={() => { this.addTabs("pendingreview") }}>Pending Builds</button>
+                                        <button onClick={() => { this.addTabs("Pending Review") }}>Pending Builds</button>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +66,7 @@ class menuComponent extends Component {
                                         <div className="img-div">
                                             <img src={require('../../Assets/images/clock.svg')} alt="" />
                                         </div>
-                                        <button onClick={() => { this.addTabs("timeregistration") }}>Other Activities Time Registration</button>
+                                        <button onClick={() => { this.addTabs("Time Registration") }}>Other Activities Time Registration</button>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +87,7 @@ class menuComponent extends Component {
                                         <div className="img-div">
                                             <img src={require('../../Assets/images/review.svg')} alt="" />
                                         </div>
-                                        <button onClick={() => { this.addTabs("reviewform") }}>Build Review</button>
+                                        <button onClick={() => { this.addTabs("Review Form") }}>Build Review</button>
                                     </div>
                                     <div className="col-sm-3 card-inner">
                                         <div className="img-div">
@@ -92,7 +98,7 @@ class menuComponent extends Component {
                                     <div className="col-sm-3 card-inner">
                                         <div className="two-btn">
                                             <button>Open Time Reg Data</button>
-                                            <button onClick={() => { this.addTabs("builddetailsview") }}>Open Build Data</button>
+                                            <button onClick={() => { this.addTabs("Build Details View") }}>Open Build Data</button>
                                         </div>
                                     </div>
                                 </div>

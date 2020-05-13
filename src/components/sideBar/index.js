@@ -6,45 +6,52 @@ class SideBar extends Component {
 
     addTabs(name){
         let {tabs}=this.props;
+        let tab=tabs;
         let Tabs=[];
         let isThere=true;
-        tabs.map((item)=>{
+        tab.map((item)=>{
+
             if(item.name ===name){
-                isThere=false
+                isThere=false;
+                item.active=true
+            }
+            else{
+                item.active=false
             }
         });
         if(isThere){
-            Tabs.push(...tabs,{id:`${tabs.length+1}`,name:name})
+            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
         }
         else{
-            Tabs.push(...tabs);
+            Tabs.push(...tab);
         }
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name}`);
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
     }
+
     render() {
 
         return (
             
                 <div className="sidenav">
-                    <div onClick={()=>{this.addTabs("employeeaccess")}}>Users</div>
-                    <div onClick={()=>{this.addTabs("createuser")}}>Create User</div>
-                    <div onClick={()=>{this.addTabs("weeklybuild")}}>weekly Build</div>
+                    <div onClick={()=>{this.addTabs("Users")}}>Users</div>
+                    {/*<div onClick={()=>{this.addTabs("Create User")}}>Create User</div>*/}
+                    {/*<div onClick={()=>{this.addTabs("Weekly Build")}}>weekly Build</div>*/}
                     <div
                         // onClick={()=>{this.addTabs("login")}}
                     >
                         Error Log  </div>
-                    <div onClick={()=>{this.addTabs("employeeaccess")}}>Employee Access  </div>
-                     <div onClick={()=>{this.addTabs("maintainactivity")}}>Activities </div>
+                    <div onClick={()=>{this.addTabs("Employee Access")}}>Employee Access  </div>
+                     <div onClick={()=>{this.addTabs("Maintain Activity")}}>Activities </div>
                     <div
                         // onClick={()=>{this.addTabs("employeeaccess")}}
                     >
                         Products</div>
-                    <div onClick={()=>{this.addTabs("useractivity")}}>User Activity Log</div>
-                    <div onClick={()=>{this.addTabs("currentopenview")}}>Currently Open Forms</div>
-                    <div onClick={()=>{this.addTabs("managepatch")}}>Manage Patches</div>
-                    <div onClick={()=>{this.addTabs("individualprint")}}>Print Build Sheet</div>
-                    <div onClick={()=>{this.addTabs("emailprint")}}>Email Build Sheet</div>
+                    <div onClick={()=>{this.addTabs("User Activity")}}>User Activity Log</div>
+                    <div onClick={()=>{this.addTabs("Current Open View")}}>Currently Open Forms</div>
+                    <div onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>
+                    <div onClick={()=>{this.addTabs("Individual Print")}}>Print Build Sheet</div>
+                    <div onClick={()=>{this.addTabs("Email Print")}}>Email Build Sheet</div>
 
                 </div>
         )

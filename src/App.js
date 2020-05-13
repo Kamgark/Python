@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 // import  Layout from './components/layout'
 import Login from './components/login';
+import Users from './components/user';
 import Menu from "./components/menu";
 import SelectDatabase from "./components/selectDatabase";
 import CreateUser from "./components/createUser";
@@ -34,46 +35,21 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    // let {tabs}=this.props;
-    // let Tabs=[];
-    // let isThere=true;
-    // tabs.map((item)=>{
-    //     if(item.name ==="menu"){
-    //         isThere=false
-    //     }
-    // });
-    // if(isThere){
-    //     Tabs.push()
-    // }
-    // else{
-    //     Tabs.push(...tabs);
-    // }
-    this.props.addTabs([{ id: `1`, name: "menu" }]);
+
+    this.props.addTabs([{ id: `1`, name: "Menu" ,active:true}]);
     this.props.history.push("/menu");
   };
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
+
 
         <BrowserRouter>
           <Layout>
             <Switch>
               <Route exact path="/" component={Menu} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/users" component={Users} />
               <Route exact path="/menu" component={Menu} />
               <Route exact path="/selectdatabase" component={SelectDatabase} />
               <Route exact path="/createuser" component={CreateUser} />
