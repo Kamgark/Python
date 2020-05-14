@@ -1,15 +1,18 @@
 
 
 const initialState = {
-     login:"Login",
+    openstate:false
 
 };
 
 export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
-    case "tabs":
-        newState.tabs = action.payLoad;
+    case "close":
+        newState.openstate = action.payLoad;
+      break;
+    case "open":
+        newState.openstate = action.payLoad;
       break;
     default:
       break;

@@ -25,6 +25,7 @@ import ManagePatch from "./components/managePatch";
 import RecentApplication from "./components/recentApplication";
 import ExcelFile from "./components/excelFile";
 import TimeRegistrationForm from "./components/timeRegistrationForm";
+import ScrollToHOC from "./scroll.js";
 import TimeRegistrationFormTwo from "./components/timeRegistrationFormTwo";
 import { addTabs } from "./components/tabs/actions";
 import BuildDetailsForm from "./components/buildDetailsForm";
@@ -37,7 +38,7 @@ class App extends Component {
   componentDidMount() {
 
     this.props.addTabs([{ id: `1`, name: "Menu" ,active:true}]);
-    this.props.history.push("/menu");
+    // this.props.history.push("/menu/1");
   };
   render() {
     return (
@@ -48,32 +49,33 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Menu} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/users" component={Users} />
-              <Route exact path="/menu" component={Menu} />
-              <Route exact path="/selectdatabase" component={SelectDatabase} />
-              <Route exact path="/createuser" component={CreateUser} />
-              <Route exact path="/employeeaccess" component={EmployeeAccess} />
-              <Route exact path="/useractivity" component={UserActivity} />
-              <Route exact path="/currentopenview" component={CurrentOpenView} />
-              <Route exact path="/maintaincomments" component={MaintainComments} />
-              <Route exact path="/maintainactivity" component={MaintainActivity} />
-              <Route exact path="/maintainsetting" component={MaintainSetting} />
-              <Route exact path="/weeklybuild" component={WeeklyBuild} />
-              <Route exact path="/openweeklybuild" component={OpenWeeklyBuild} />
-              <Route exact path="/pendingreview" component={PendingReview} />
-              <Route exact path="/builddetailsview" component={BuildDetailsView} />
-              <Route exact path="/batchprint" component={BatchPrint} />
-              <Route exact path="/individualprint" component={IndividualPrint} />
-              <Route exact path="/emailprint" component={EmailPrint} />
-              <Route exact path="/reviewform" component={ReviewForm} />
-              <Route exact path="/timeregistration" component={TimeRegistration} />
-              <Route exact path="/managepatch" component={ManagePatch} />
-              <Route exact path="/recentapplication" component={RecentApplication} />
-              <Route exact path="/excelfile" component={ExcelFile} />
-              <Route exact path="/timeregistrationform" component={TimeRegistrationForm} />
-              <Route exact path="/timeregistrationformtwo" component={TimeRegistrationFormTwo} />
-              <Route exact path="/builddetailsform" component={BuildDetailsForm} />
+              <Route exact path="/scroll" component={ScrollToHOC} />
+              <Route exact path="/login/:id" component={Login} />
+              <Route exact path="/users/:id" component={Users} />
+              <Route exact path="/menu/:id" component={Menu} />
+              <Route exact path="/selectdatabase/:id" component={SelectDatabase} />
+              <Route exact path="/createuser/:id" component={CreateUser} />
+              <Route exact path="/employeeaccess/:id" component={EmployeeAccess} />
+              <Route exact path="/useractivity/:id" component={UserActivity} />
+              <Route exact path="/currentopenview/:id" component={CurrentOpenView} />
+              <Route exact path="/maintaincomments/:id" component={MaintainComments} />
+              <Route exact path="/maintainactivity/:id" component={MaintainActivity} />
+              <Route exact path="/maintainsetting/:id" component={MaintainSetting} />
+              <Route exact path="/weeklybuild/:id" component={WeeklyBuild} />
+              <Route exact path="/openweeklybuild/:id" component={OpenWeeklyBuild} />
+              <Route exact path="/pendingreview/:id" component={PendingReview} />
+              <Route exact path="/builddetailsview/:id" component={BuildDetailsView} />
+              <Route exact path="/batchprint/:id" component={BatchPrint} />
+              <Route exact path="/individualprint/:id" component={IndividualPrint} />
+              <Route exact path="/emailprint/:id" component={EmailPrint} />
+              <Route exact path="/reviewform/:id" component={ReviewForm} />
+              <Route exact path="/timeregistration/:id" component={TimeRegistration} />
+              <Route exact path="/managepatch/:id" component={ManagePatch} />
+              <Route exact path="/recentapplication/:id" component={RecentApplication} />
+              <Route exact path="/excelfile/:id" component={ExcelFile} />
+              <Route exact path="/timeregistrationform/:id" component={TimeRegistrationForm} />
+              <Route exact path="/timeregistrationformtwo/:id" component={TimeRegistrationFormTwo} />
+              <Route exact path="/builddetailsform/:id" component={BuildDetailsForm} />
             </Switch>
 
           </Layout>

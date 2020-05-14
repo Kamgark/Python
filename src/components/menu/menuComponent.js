@@ -4,29 +4,30 @@ import { withRouter, Link } from 'react-router-dom';
 import { connect } from "react-redux";
 
 class menuComponent extends Component {
-    addTabs(name) {
+    addTabs(name,id) {
         let { tabs } = this.props;
         let tab=tabs;
         let Tabs=[];
         let isThere=true;
         tab.map((item)=>{
-
-            if(item.name ===name){
-                isThere=false;
-                item.active=true
-            }
-            else{
-                item.active=false
-            }
+            item.active=false
+            // if(item.name ===name){
+            //     isThere=false;
+            //     item.active=true
+            // }
+            // else{
+            //     item.active=false
+            // }
         });
-        if(isThere){
-            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
-        }
-        else{
-            Tabs.push(...tab);
-        }
+        // if(isThere){
+        //     Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
+        // }
+        // else{
+        //     Tabs.push(...tab);
+        // }
+        Tabs.push(...tab,{id:`${parseInt(tab[tab.length-1].id)+1}`,name:name,active:true})
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}/${parseInt(tab[tab.length-1].id)+1}`);
     }
     render() {
         return (

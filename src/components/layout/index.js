@@ -6,9 +6,11 @@ import SideBar from "../sideBar";
 import {addTabs} from '../tabs/actions'
 import Tabs from "../tabs"
 import {withRouter} from 'react-router-dom';
+import OutsideClickHandler from 'react-outside-click-handler';
+
 class Layout extends Component {
     state = {
-        openstate: true,
+        openstate: false,
     }
     open1 = () => {
         this.setState({ openstate: !this.state.openstate });
@@ -19,23 +21,24 @@ class Layout extends Component {
         let Tabs=[];
         let isThere=true;
         tab.map((item)=>{
-
-            if(item.name ===name){
-                isThere=false;
-                item.active=true
-            }
-            else{
-                item.active=false
-            }
+            item.active=false
+        //     if(item.id ===id){
+        //         isThere=false;
+        //         item.active=true
+        //     }
+        //     else{
+        //         item.active=false
+        //     }
         });
-        if(isThere){
-            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
-        }
-        else{
-            Tabs.push(...tab);
-        }
+        // if(isThere){
+        //     Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
+        // }
+        // else{
+        //     Tabs.push(...tab);
+        // }
+        Tabs.push(...tab,{id:`${parseInt(tab[tab.length-1].id)+1}`,name:name,active:true})
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}/${parseInt(tab[tab.length-1].id)+1}`);
     }
     render() {
 
@@ -76,16 +79,24 @@ class Layout extends Component {
 
                     </div>
                 </div>
-                <div className="row">
-                <div className="col-sm-2 pl-0 " >
-                    {
-                        this.state.openstate ? 
-                        
-                        <SideBar/>
-                         : null
-                    }
-                    </div>
-                    <div className="col-sm-10 menu-margin">
+                <div className="row pos-relative">
+                    <OutsideClickHandler
+                        onOutsideClick={() => {
+
+                            this.setState({openstate:false})
+                        }}
+                    >
+                        <div id="mySidenav" className={this.state.openstate ? "sidenav width-250":"sidenav width-0"} >
+                            {
+                                this.state.openstate ?
+
+                                    <SideBar closeside={()=>{this.setState({openstate:false})}}/>
+                                    : null
+                            }
+                        </div>
+                    </OutsideClickHandler>
+
+                    <div className="col-sm-12 menu-margin">
                     <Tabs/>
                    {this.props.children}  
                     </div>

@@ -10,23 +10,24 @@ class SideBar extends Component {
         let Tabs=[];
         let isThere=true;
         tab.map((item)=>{
-
-            if(item.name ===name){
-                isThere=false;
-                item.active=true
-            }
-            else{
-                item.active=false
-            }
+            item.active=false;
+            // if(item.name ===name){
+            //     isThere=false;
+            // }
+            // else{
+            //     item.active=false
+            // }
         });
-        if(isThere){
-            Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
-        }
-        else{
-            Tabs.push(...tab);
-        }
+        // if(isThere){
+        //     Tabs.push(...tab,{id:`${tab.length+1}`,name:name,active:true})
+        // }
+        // else{
+        //     Tabs.push(...tab);
+        // }
+        Tabs.push(...tab,{id:`${parseInt(tab[tab.length-1].id)+1}`,name:name,active:true})
         this.props.addTabs(Tabs);
-        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}`);
+        this.props.closeside();
+        this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}/${parseInt(tab[tab.length-1].id)+1}`);
     }
 
     render() {
@@ -34,24 +35,24 @@ class SideBar extends Component {
         return (
             
                 <div className="sidenav">
-                    <div onClick={()=>{this.addTabs("Users")}}>Users</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Users")}}>Users</div>
                     {/*<div onClick={()=>{this.addTabs("Create User")}}>Create User</div>*/}
                     {/*<div onClick={()=>{this.addTabs("Weekly Build")}}>weekly Build</div>*/}
-                    <div
+                    <div className="sidebarlink"
                         // onClick={()=>{this.addTabs("login")}}
                     >
                         Error Log  </div>
-                    <div onClick={()=>{this.addTabs("Employee Access")}}>Employee Access  </div>
-                     <div onClick={()=>{this.addTabs("Maintain Activity")}}>Activities </div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Employee Access")}}>Employee Access  </div>
+                     <div className="sidebarlink" onClick={()=>{this.addTabs("Maintain Activity")}}>Activities </div>
                     <div
                         // onClick={()=>{this.addTabs("employeeaccess")}}
                     >
                         Products</div>
-                    <div onClick={()=>{this.addTabs("User Activity")}}>User Activity Log</div>
-                    <div onClick={()=>{this.addTabs("Current Open View")}}>Currently Open Forms</div>
-                    <div onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>
-                    <div onClick={()=>{this.addTabs("Individual Print")}}>Print Build Sheet</div>
-                    <div onClick={()=>{this.addTabs("Email Print")}}>Email Build Sheet</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("User Activity")}}>User Activity Log</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Current Open View")}}>Currently Open Forms</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Individual Print")}}>Print Build Sheet</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Email Print")}}>Email Build Sheet</div>
 
                 </div>
         )
