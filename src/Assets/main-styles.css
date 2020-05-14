@@ -896,6 +896,9 @@ select {
 .menus .tabs-button::-webkit-scrollbar-thumb {
     background: #888;
 }
+.color-topbar{
+    background-color: #7F7F7F;
+}
 
 /* Handle on hover */
 .menus .tabs-button::-webkit-scrollbar-thumb:hover {

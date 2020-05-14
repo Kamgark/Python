@@ -49,7 +49,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route exact path="/" component={Menu} />
-              <Route exact path="/scroll" component={ScrollToHOC} />
+              {/*<Route exact path="/scroll" component={ScrollToHOC} />*/}
               <Route exact path="/login/:id" component={Login} />
               <Route exact path="/users/:id" component={Users} />
               <Route exact path="/menu/:id" component={Menu} />

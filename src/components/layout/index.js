@@ -45,7 +45,7 @@ class Layout extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-sm-12 pl-0 pr-0" >
+                    <div className="col-sm-12 pl-0 pr-0 d-flex justify-content-between color-topbar" >
                         <div className="topbar " >
                             {/* <i className="fa fa-search" onClick={() => { this.open1() }}></i> */}
                             <button role="button" className="sidenav-toggle---23_Hl" aria-expanded="false" onClick={() => { this.open1() }}>
@@ -56,15 +56,14 @@ class Layout extends Component {
                             {/* <button onClick={()=>{this.open1()}}>File </button> */}
                             <DropdownButton id="dropdown-item-button" title="File">
                                 <Dropdown.Item as="button" onClick={()=> this.goto("Build Details View")} >Build Details View</Dropdown.Item>
-                                <Dropdown.Item as="button" onClick={()=> this.goto("Login")} >Sign in</Dropdown.Item>
-                                <Dropdown.Item as="button">Log Out</Dropdown.Item>
+
                             </DropdownButton>
                             <DropdownButton id="dropdown-item-button" title="Edit">
                                 <Dropdown.Item as="button">Action</Dropdown.Item>
                                 <Dropdown.Item as="button">Another action</Dropdown.Item>
                                 <Dropdown.Item as="button">Something else</Dropdown.Item>
                             </DropdownButton>  
-                            <p>Build System</p>
+                            {/*<p>Build System</p>*/}
                             {
                                 this.props.tabs.map((item)=>{
                                    return item.active=== true && <p className="pagetitle">
@@ -76,6 +75,14 @@ class Layout extends Component {
                             }
 
                             </div>
+                        <div className="topbar  ">
+                            <DropdownButton id="dropdown-item-button" title="Sign In">
+
+                            </DropdownButton>
+                            <DropdownButton id="dropdown-item-button" title="Sign up">
+
+                            </DropdownButton>
+                        </div>
 
                     </div>
                 </div>
