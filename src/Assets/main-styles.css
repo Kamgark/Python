@@ -899,7 +899,9 @@ select {
 .color-topbar{
     background-color: #7F7F7F;
 }
-
+.right-topbar-sign-in div{
+    display: none!important;
+}
 /* Handle on hover */
 .menus .tabs-button::-webkit-scrollbar-thumb:hover {
     background: #555;

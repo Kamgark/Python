@@ -77,10 +77,10 @@ class Layout extends Component {
 
                             </div>
                         <div className="topbar  ">
-                            <DropdownButton id="dropdown-item-button" title="Sign In" onClick={()=> this.goto("Login")}>
+                            <DropdownButton id="dropdown-item-button"  className="right-topbar-sign-in" title="Sign In" onClick={()=> this.goto("Login")}>
 
                             </DropdownButton>
-                            <DropdownButton id="dropdown-item-button" title="Sign up">
+                            <DropdownButton id="dropdown-item-button" className="right-topbar-sign-in " title="Sign up">
 
                             </DropdownButton>
                         </div>
