@@ -48,7 +48,7 @@ class Tabs extends Component{
             }
         })
         this.props.closetabs(Tab);
-           this.forceUpdate()
+
         if( this.props.location.pathname.toLowerCase().replace(/\s/g, "")===`/${name.toLowerCase().replace(/\s/g, "")}/${id}` && active===true ){
             console.log("in if of tabs", name);
             Tab[Tab.length-1].active=true

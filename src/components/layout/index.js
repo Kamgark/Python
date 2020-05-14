@@ -14,6 +14,7 @@ class Layout extends Component {
     }
     open1 = () => {
         this.setState({ openstate: !this.state.openstate });
+        this.forceUpdate()
     }
     goto(name){
         let {tabs}=this.props;
@@ -48,7 +49,7 @@ class Layout extends Component {
                     <div className="col-sm-12 pl-0 pr-0 d-flex justify-content-between color-topbar" >
                         <div className="topbar " >
                             {/* <i className="fa fa-search" onClick={() => { this.open1() }}></i> */}
-                            <button role="button" className="sidenav-toggle---23_Hl" aria-expanded="false" onClick={() => { this.open1() }}>
+                            <button role="button" className="sidenav-toggle---23_Hl" aria-expanded="false" onClick={() => {this.open1()} }>
                                 <span className="icon-bar---2jamJ"></span>
                                 <span className="icon-bar---2jamJ"></span>
                                 <span className="icon-bar---2jamJ"></span>
@@ -76,7 +77,7 @@ class Layout extends Component {
 
                             </div>
                         <div className="topbar  ">
-                            <DropdownButton id="dropdown-item-button" title="Sign In">
+                            <DropdownButton id="dropdown-item-button" title="Sign In" onClick={()=> this.goto("Login")}>
 
                             </DropdownButton>
                             <DropdownButton id="dropdown-item-button" title="Sign up">
