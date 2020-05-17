@@ -915,19 +915,28 @@ select {
     /* width: 15%; */
 }
 #menu .tabs-button button {
-    display:  flex;
+    display: flex;
+    justify-content: space-between;
     border: 1px solid transparent;
     border-bottom: none;
     bottom: -1px;
     position: relative;
     list-style: none;
-    padding: 6px 12px;
+    padding: 5px 8px;
+    width: 190px;
     cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     align-items: center;
     border-right: 1px solid rgb(236,236,236);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+#menu .tabs-button button:focus{
+    border: none;
 }
 #menu .tabs-button button h1{
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 0;
     margin-right:14px;
 }
