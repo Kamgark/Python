@@ -5,17 +5,7 @@ import {closetabs,addTabs} from "./actions"
 import _ from 'lodash';
 
 
-function query(tableData , startIndex = 0, endIndex = 7) {
-        let arraytosend=[];
-        console.log("start",startIndex,endIndex,tableData)
-        tableData.map((item,index)=>{
 
-            if(index >= startIndex && index < endIndex){
-                arraytosend.push(item);
-            }
-        })
-    return arraytosend;
-}
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 class Tabs extends Component{
@@ -74,10 +64,10 @@ class Tabs extends Component{
          this.forceUpdate();
     }
     scrollleft(){
-        window.scrollTo(500, 0);
+        document.getElementById("tabs-btn-on").scrollLeft -= 100
     }
-    scrollRIght(){
-
+    scrollRght(){
+        document.getElementById("tabs-btn-on").scrollLeft += 100
     }
        render(){
         let {pager}=this.state;
@@ -87,7 +77,7 @@ class Tabs extends Component{
                    <i className="fa fa-chevron-left next-butt mr-3"
                         onClick={() => this.scrollleft()}
                    />
-                   <div className="tabs-button container-scroll">
+                   <div className="tabs-button container-scroll" id="tabs-btn-on">
 
 
                        {
@@ -97,7 +87,7 @@ class Tabs extends Component{
 
                                       item.active===true ? `blue-back mr-1 ${item.name.toLowerCase().replace(/\s/g, "")}`:`mr-1 ${item.name.toLowerCase().replace(/\s/g, "")}`
                                }
-                                               key={index}><h1
+                                               key={index}><h1 className="tab-h1"
                                    onClick={()=>{this.goto(item.name,item.id)}}
                                >{item.name}</h1><i className="fa fa-times" onClick={()=>{this.closeTabs(item.name,item.id,item.active)}}></i></button>
                            })
@@ -107,7 +97,7 @@ class Tabs extends Component{
 
                    </div>
                    <i className="fa fa-chevron-right next-butt"
-                       onClick={() => this.scrollRIght()}
+                       onClick={() => this.scrollRght()}
                    />
                </div>
 

@@ -26,7 +26,7 @@ class SideBar extends Component {
         // }
         Tabs.push(...tab,{id:`${parseInt(tab[tab.length-1].id)+1}`,name:name,active:true})
         this.props.addTabs(Tabs);
-        this.props.closeside();
+
         this.props.history.push(`/${name.toLowerCase().replace(/\s/g, "")}/${parseInt(tab[tab.length-1].id)+1}`);
     }
 

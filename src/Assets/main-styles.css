@@ -902,6 +902,12 @@ select {
 .right-topbar-sign-in div{
     display: none!important;
 }
+
+.tab-h1{
+    width: 160px;
+    margin: 0;
+    text-align: left;
+}
 /* Handle on hover */
 .menus .tabs-button::-webkit-scrollbar-thumb:hover {
     background: #555;
@@ -914,7 +920,16 @@ select {
     padding: 12px 4px 12px 24px;
     /* width: 15%; */
 }
+.posi-top{
+    position: fixed;
+    top: 0%;
+    outline: none;
+}
+.ml-10m{
+margin-left: 7%;
+}
 #menu .tabs-button button {
+    outline: none;
     display: flex;
     justify-content: space-between;
     border: 1px solid transparent;

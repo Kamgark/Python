@@ -14,7 +14,6 @@ class Layout extends Component {
     }
     open1 = () => {
         this.setState({ openstate: !this.state.openstate });
-        this.forceUpdate()
     }
     goto(name){
         let {tabs}=this.props;
@@ -47,13 +46,9 @@ class Layout extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-12 pl-0 pr-0 d-flex justify-content-between color-topbar" >
-                        <div className="topbar " >
+                        <div className="topbar ml-10m" >
                             {/* <i className="fa fa-search" onClick={() => { this.open1() }}></i> */}
-                            <button role="button" className="sidenav-toggle---23_Hl" aria-expanded="false" onClick={() => {this.open1()} }>
-                                <span className="icon-bar---2jamJ"></span>
-                                <span className="icon-bar---2jamJ"></span>
-                                <span className="icon-bar---2jamJ"></span>
-                            </button>
+
                             {/* <button onClick={()=>{this.open1()}}>File </button> */}
                             <DropdownButton id="dropdown-item-button" title="File">
                                 <Dropdown.Item as="button" onClick={()=> this.goto("Build Details View")} >Build Details View</Dropdown.Item>
@@ -90,15 +85,20 @@ class Layout extends Component {
                 <div className="row pos-relative">
                     <OutsideClickHandler
                         onOutsideClick={() => {
-
+                            console.log("open state", this.state.openstate)
                             this.setState({openstate:false})
                         }}
                     >
+                        <button role="button" className="sidenav-toggle---23_Hl posi-top" aria-expanded="false" onClick={() => {this.open1()} }>
+                            <span className="icon-bar---2jamJ"></span>
+                            <span className="icon-bar---2jamJ"></span>
+                            <span className="icon-bar---2jamJ"></span>
+                        </button>
                         <div id="mySidenav" className={this.state.openstate ? "sidenav width-250":"sidenav width-0"} >
                             {
                                 this.state.openstate ?
 
-                                    <SideBar closeside={()=>{this.setState({openstate:false})}}/>
+                                    <SideBar />
                                     : null
                             }
                         </div>
