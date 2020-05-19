@@ -24,15 +24,12 @@ class CreateUser extends Component {
     render() {
         return (
             <div className="container" id="login">
-                <div className="row pop">
+                <div className="row pop second-pop">
                     <div className="col-sm-6">
                         <div className="card">
                             <div className="card-top">
-                                <div className="createuserimg">
-                                    <img src={require('../../Assets/images/user.svg')} alt="" />
-                                </div>
                                 <div className="lab-inp">
-                                    <label className="mb-0">Username</label>
+                                    <label className="mb-0">SKU</label>
                                     <input type="text" />
                                 </div>
                                 <div className="lab-inp">
@@ -40,40 +37,36 @@ class CreateUser extends Component {
                                     <input type="text" />
                                 </div>
                                 <div className="lab-inp">
-                                    <label className="mb-0">Password</label>
+                                    <label className="mb-0">System Name</label>
                                     <input type="text" />
                                 </div>
                                 <div className="lab-inp">
-                                    <label className="mb-0">Confirm Password</label>
+                                    <label className="mb-0">Brand Name</label>
                                     <input type="text" />
                                 </div>
                                 <div className="lab-inp">
-                                    <label className="mb-0">Select</label>
-                                    <div className="position-relative ">
-                                        <select>
-                                            <option>0 - User</option>
-                                            <option>1 - Admin</option>
-                                            <option>2 - SuperAdmin</option>
-                                        </select>
-                                        <img src={require('../../Assets/images/down-chevron.svg')} alt="" />
-                                    </div>
-
-                                    {/* <Dropdown isOpen={this.state.dropdownOpen[0]} toggle={() => {
-                                        this.toggle(0);
-                                    }}>
-                                        <DropdownToggle >
-                                            0 - User
-                                        </DropdownToggle>
-                                        <DropdownMenu>
-                                            <DropdownItem>0 - User</DropdownItem>
-                                            <DropdownItem >1 - Admin</DropdownItem>
-                                            <DropdownItem>2 - SuperAdmin</DropdownItem>
-                                        </DropdownMenu>
-                                    </Dropdown> */}
+                                    <label className="mb-0">Full System Name</label>
+                                    <input type="text" />
                                 </div>
+                                <div className="lab-inp">
+                                    <label className="mb-0">Product Status ID</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="lab-inp">
+                                    <label className="mb-0">Product Category ID</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="lab-inp">
+                                    <label className="mb-0">SKU Type</label>
+                                    <input type="text" />
+                                </div>
+                                
                                 <div className="createuser">
-                                    <div className="right">
-                                        <button>Save</button>
+                                    <div class="maintain-button w-100">
+                                        <div>
+                                            <button>SAVE</button>
+                                            <button>CANCEL</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

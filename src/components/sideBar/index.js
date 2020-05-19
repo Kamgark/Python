@@ -39,13 +39,13 @@ class SideBar extends Component {
                     {/*<div onClick={()=>{this.addTabs("Create User")}}>Create User</div>*/}
                     {/*<div onClick={()=>{this.addTabs("Weekly Build")}}>weekly Build</div>*/}
                     <div className="sidebarlink"
-                        // onClick={()=>{this.addTabs("login")}}
+                        onClick={()=>{this.addTabs("Error Log")}}
                     >
                         Error Log  </div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Employee Access")}}>Employee Access  </div>
-                     <div className="sidebarlink" onClick={()=>{this.addTabs("Maintain Activity")}}>Activities </div>
-                    <div
-                        // onClick={()=>{this.addTabs("employeeaccess")}}
+                     <div className="sidebarlink" onClick={()=>{this.addTabs("Activities")}}>Activities</div>
+                    <div className="sidebarlink"
+                        onClick={()=>{this.addTabs("product")}}
                     >
                         Products</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("User Activity")}}>User Activity Log</div>
@@ -53,6 +53,7 @@ class SideBar extends Component {
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Individual Print")}}>Print Build Sheet</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Email Print")}}>Email Build Sheet</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Patch")}}>Patch View</div>
 
                 </div>
         )

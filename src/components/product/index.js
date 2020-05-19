@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 
-import Users from './users'
-class CurrentOpenView extends Component {
+import Products from './product'
+class Product extends Component {
     render(){
         return(
             <div >
-                <div className="container-fluid" > 
+                <div className="container-fluid" >
                     <div className="table-body">
-                        <Users/>
+                        <Products/>
                     </div>
                 </div>
             </div>
         )
     }
 }
-const mapStateToProps = ({CurrentOpenView }) => {
+const mapStateToProps = ({Product }) => {
     return {
 
-        batch:CurrentOpenView.batch
+        // batch:Product.batch
     };
 };
 
@@ -30,4 +30,4 @@ const mapDispachToProps = dispatch => {
 export default connect(
     mapStateToProps,
     {}
-)(CurrentOpenView);
+)(Product);

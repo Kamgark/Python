@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 // import  Layout from './components/layout'
 import Login from './components/login';
 import Users from './components/user';
+import Product from './components/product';
 import Menu from "./components/menu";
 import SelectDatabase from "./components/selectDatabase";
 import CreateUser from "./components/createUser";
@@ -29,6 +30,9 @@ import ScrollToHOC from "./scroll.js";
 import TimeRegistrationFormTwo from "./components/timeRegistrationFormTwo";
 import { addTabs } from "./components/tabs/actions";
 import BuildDetailsForm from "./components/buildDetailsForm";
+import Activities from "./components/activities";
+import Patch from './components/patch'
+import ErrorLog from './components/errorLog'
 import Layout from './components/layout'
 import { Route, Switch, withRouter } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
@@ -52,6 +56,7 @@ class App extends Component {
               {/*<Route exact path="/scroll" component={ScrollToHOC} />*/}
               <Route exact path="/login/:id" component={Login} />
               <Route exact path="/users/:id" component={Users} />
+              <Route exact path="/product/:id" component={Product} />
               <Route exact path="/menu/:id" component={Menu} />
               <Route exact path="/selectdatabase/:id" component={SelectDatabase} />
               <Route exact path="/createuser/:id" component={CreateUser} />
@@ -60,6 +65,7 @@ class App extends Component {
               <Route exact path="/currentopenview/:id" component={CurrentOpenView} />
               <Route exact path="/maintaincomments/:id" component={MaintainComments} />
               <Route exact path="/maintainactivity/:id" component={MaintainActivity} />
+              <Route exact path="/activities/:id" component={Activities} />
               <Route exact path="/maintainsetting/:id" component={MaintainSetting} />
               <Route exact path="/weeklybuild/:id" component={WeeklyBuild} />
               <Route exact path="/openweeklybuild/:id" component={OpenWeeklyBuild} />
@@ -76,6 +82,8 @@ class App extends Component {
               <Route exact path="/timeregistrationform/:id" component={TimeRegistrationForm} />
               <Route exact path="/timeregistrationformtwo/:id" component={TimeRegistrationFormTwo} />
               <Route exact path="/builddetailsform/:id" component={BuildDetailsForm} />
+              <Route exact path="/patch/:id" component={Patch} />
+              <Route exact path="/errorlog/:id" component={ErrorLog} />
             </Switch>
 
           </Layout>
