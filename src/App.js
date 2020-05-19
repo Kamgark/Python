@@ -82,7 +82,7 @@ class App extends Component {
               <Route exact path="/timeregistrationform/:id" component={TimeRegistrationForm} />
               <Route exact path="/timeregistrationformtwo/:id" component={TimeRegistrationFormTwo} />
               <Route exact path="/builddetailsform/:id" component={BuildDetailsForm} />
-              <Route exact path="/patch/:id" component={Patch} />
+              <Route exact path="/patches/:id" component={Patch} />
               <Route exact path="/errorlog/:id" component={ErrorLog} />
             </Switch>
 

@@ -50,10 +50,10 @@ class SideBar extends Component {
                         Products</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("User Activity")}}>User Activity Log</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Current Open View")}}>Currently Open Forms</div>
-                    <div className="sidebarlink" onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>
+                    {/*<div className="sidebarlink" onClick={()=>{this.addTabs("Manage Patch")}}>Manage Patches</div>*/}
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Individual Print")}}>Print Build Sheet</div>
                     <div className="sidebarlink" onClick={()=>{this.addTabs("Email Print")}}>Email Build Sheet</div>
-                    <div className="sidebarlink" onClick={()=>{this.addTabs("Patch")}}>Patch View</div>
+                    <div className="sidebarlink" onClick={()=>{this.addTabs("Patches")}}>Patches</div>
 
                 </div>
         )
